@@ -161,26 +161,26 @@ const Sidebar = () => {
               Water Sensor Data
             </Typography>
             <Item
-              title="Map"
-              to="/maps"
+              title="Water Map"
+              to="/WaterMaps"
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Daily Average Data"
-              to="/contacts"
+              title="Water Daily Average Data"
+              to="/WaterDailyAverage"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="Water Quality Summary"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -189,26 +189,26 @@ const Sidebar = () => {
               Land Sensor Data
             </Typography>
             <Item
-              title="Map"
-              to="/maps"
+              title="Land Map"
+              to="/LandMaps"
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Daily Average Data"
-              to="/contacts"
+              title="Land Daily Average Data"
+              to="/LandDailyAverage"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="Land Quality Summary"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
 
             <Typography
               variant="h6"

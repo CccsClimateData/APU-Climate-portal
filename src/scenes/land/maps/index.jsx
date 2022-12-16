@@ -12,7 +12,7 @@ const covidIcon = new Icon({
     iconSize: [25, 25]
 })
 
-const AirMaps = () => {
+const LandMaps = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const [ activeCovid, setActiveCovid ] = useState( null );
@@ -56,10 +56,10 @@ const AirMaps = () => {
                     >
                         <div>
                             <h1>{activeCovid.Location}</h1>
-                            <p>AQI CO2:                {activeCovid.Total_Cases}</p>
-                            <p>PPM 2.5:         {activeCovid.New_Cases_Per_Day}</p>
-                            <p>Lead: {activeCovid.Cases_Per_1_Million_People}</p>
-                            <p>NOX:                     {activeCovid.Deaths}</p>
+                            <p>Soil MOisture:                {activeCovid.Total_Cases}</p>
+                            <p>Temps :         {activeCovid.New_Cases_Per_Day}</p>
+                            <p>pH : {activeCovid.Cases_Per_1_Million_People}</p>
+                            {/* <p>NOX:                     {activeCovid.Deaths}</p> */}
                         </div>
                     </Popup>
                 )}
@@ -74,4 +74,4 @@ const AirMaps = () => {
     );
 };
 
-export default AirMaps;
+export default LandMaps;

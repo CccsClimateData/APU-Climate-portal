@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import AirMaps from "./scenes/air/maps";
+import WaterMaps from "./scenes/water/maps";
+import LandMaps from "./scenes/land/maps";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Team from "./scenes/team";
@@ -18,7 +20,10 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import AirDailyAverage from "./scenes/airDailyAverage";
+import WaterDailyAverage from "./scenes/waterDailyAverage";
+import LandDailyAverage from "./scenes/landDailyAverage";
 import AirQualitySummary from "./scenes/airQualitySummary";
+
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -47,6 +52,10 @@ function App() {
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/geography" element={<Geography />} />
               <Route path="/airQualitySummaty" element={<AirQualitySummary />} />
+              <Route path="/WaterMaps" element={<WaterMaps />} />
+              <Route path="/LandMaps" element={<LandMaps />} />
+              <Route path="/WaterDailyAverage" element={<WaterDailyAverage />} />
+              <Route path="/LandDailyAverage" element={<LandDailyAverage />} />
             </Routes>
           </main>
         </div>

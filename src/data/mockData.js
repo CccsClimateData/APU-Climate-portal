@@ -421,168 +421,171 @@ export const mockPieData = [
 
 export const mockLineData = [
   {
-    id: "japan",
+    id: "Guwahati",
     color: tokens("dark").greenAccent[500],
     data: [
       {
-        x: "plane",
-        y: 101,
+        x: "12 PM  11-12-22 ",
+        y: 285,
       },
       {
-        x: "helicopter",
-        y: 75,
+        x: "8 PM  11-12-22 ",
+        y: 243,
       },
       {
-        x: "boat",
+        x: "4 AM  12-12-22 ",
         y: 36,
       },
       {
-        x: "train",
-        y: 216,
+        x: "12 PM  12-12-22 ",
+        y: 266,
       },
       {
-        x: "subway",
-        y: 35,
+        x: "8 PM  12-12-22 ",
+        y: 210,
       },
+
+
       {
-        x: "bus",
-        y: 236,
-      },
-      {
-        x: "car",
-        y: 88,
-      },
-      {
-        x: "moto",
-        y: 232,
-      },
-      {
-        x: "bicycle",
-        y: 281,
-      },
-      {
-        x: "horse",
-        y: 1,
-      },
-      {
-        x: "skateboard",
-        y: 35,
-      },
-      {
-        x: "others",
-        y: 14,
-      },
-    ],
-  },
-  {
-    id: "france",
-    color: tokens("dark").blueAccent[300],
-    data: [
-      {
-        x: "plane",
-        y: 212,
-      },
-      {
-        x: "helicopter",
-        y: 190,
-      },
-      {
-        x: "boat",
-        y: 270,
-      },
-      {
-        x: "train",
-        y: 9,
-      },
-      {
-        x: "subway",
-        y: 75,
-      },
-      {
-        x: "bus",
-        y: 175,
-      },
-      {
-        x: "car",
+        x: "4 AM  13-12-22 ",
         y: 33,
       },
       {
-        x: "moto",
-        y: 189,
+        x: "12 PM  13-12-22 ",
+        y: 228,
       },
       {
-        x: "bicycle",
-        y: 97,
+        x: "8 PM  13-12-22 ",
+        y: 232,
       },
       {
-        x: "horse",
-        y: 87,
+        x: "4 AM  14-12-22 ",
+        y: 28,
       },
       {
-        x: "skateboard",
-        y: 299,
+        x: "12 PM  14-12-22 ",
+        y: 281,
       },
       {
-        x: "others",
-        y: 251,
+        x: "8 PM  14-12-22 ",
+        y: 175,
+      },
+      {
+        x: "4 AM  15-12-22 ",
+        y: 26,
       },
     ],
   },
   {
-    id: "us",
+    id: "Bengaluru",
+    color: tokens("dark").blueAccent[300],
+    data: [
+      {
+        x: "12 PM  11-12-22 ",
+        y: 72,
+      },
+      {
+        x: "8 PM  11-12-22 ",
+        y: 60,
+      },
+      {
+        x: "4 AM  12-12-22 ",
+        y: 14,
+      },
+      {
+        x: "12 PM  12-12-22 ",
+        y: 80,
+      },
+      {
+        x: "8 PM  12-12-22 ",
+        y: 65,
+      },
+      {
+        x: "4 AM  13-12-22 ",
+        y: 18,
+      },
+      {
+        x: "12 PM  13-12-22 ",
+        y: 86,
+      },
+      {
+        x: "8 PM  13-12-22 ",
+        y: 79,
+      },
+      {
+        x: "4 AM  14-12-22 ",
+        y: 27,
+      },
+      {
+        x: "12 PM  14-12-22 ",
+        y: 87,
+      },
+      {
+        x: "8 PM  14-12-22 ",
+        y: 69,
+      },
+      {
+        x: "4 AM  15-12-22 ",
+        y: 21,
+      },
+    ],
+  },
+  {
+    id: "Jorhat",
     color: tokens("dark").redAccent[200],
     data: [
       {
-        x: "plane",
-        y: 191,
+        x: "12 PM  11-12-22 ",
+        y: 71,
       },
       {
-        x: "helicopter",
-        y: 136,
+        x: "8 PM  11-12-22 ",
+        y: 66,
       },
       {
-        x: "boat",
-        y: 91,
+        x: "4 AM  12-12-22 ",
+        y: 12,
       },
       {
-        x: "train",
-        y: 190,
+        x: "12 PM  12-12-22 ",
+        y: 80,
       },
       {
-        x: "subway",
-        y: 211,
+        x: "8 PM  12-12-22 ",
+        y: 62,
       },
       {
-        x: "bus",
-        y: 152,
+        x: "4 AM  13-12-22 ",
+        y: 15,
       },
       {
-        x: "car",
-        y: 189,
+        x: "12 PM  13-12-22 ",
+        y: 76,
       },
       {
-        x: "moto",
-        y: 152,
+        x: "8 PM  13-12-22 ",
+        y: 63,
       },
       {
-        x: "bicycle",
+        x: "4 AM  14-12-22 ",
         y: 8,
       },
       {
-        x: "horse",
-        y: 197,
+        x: "12 PM  14-12-22 ",
+        y: 72,
       },
       {
-        x: "skateboard",
-        y: 107,
+        x: "8 PM  14-12-22 ",
+        y: 59,
       },
       {
-        x: "others",
-        y: 170,
+        x: "4 AM  15-12-22 ",
+        y: 8,
       },
     ],
   },
 ];
+
 
 export const mockGeographyData = [
   {
