@@ -23,7 +23,9 @@ import AirDailyAverage from "./scenes/airDailyAverage";
 import WaterDailyAverage from "./scenes/waterDailyAverage";
 import LandDailyAverage from "./scenes/landDailyAverage";
 import AirQualitySummary from "./scenes/airQualitySummary";
-
+import Resources from "./scenes/resources";
+import ApiAccess from "./scenes/apiAccess";
+import About from "./scenes/about";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -56,6 +58,9 @@ function App() {
               <Route path="/LandMaps" element={<LandMaps />} />
               <Route path="/WaterDailyAverage" element={<WaterDailyAverage />} />
               <Route path="/LandDailyAverage" element={<LandDailyAverage />} />
+              <Route path="/Resources" element={<Resources />} />
+              <Route path="/ApiAccess" element={<ApiAccess />} />
+              <Route path="/About" element={<About />} />
             </Routes>
           </main>
         </div>

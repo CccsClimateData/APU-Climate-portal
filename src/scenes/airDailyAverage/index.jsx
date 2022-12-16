@@ -150,8 +150,8 @@ const AirDailyAverage = () => {
   return (
     <Box m="20px">
       <Header
-        title="Daiy Air Quality Data"
-        subtitle="Daiy Air Quality Data"
+        title="Daily Air Quality Data"
+        subtitle="Daily Air Quality Data"
       />
       <Box
         m="40px 0 0 0"
