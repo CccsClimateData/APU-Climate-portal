@@ -60,6 +60,7 @@ const LandMaps = () => {
                             <p>Temps :         {activeCovid.New_Cases_Per_Day}</p>
                             <p>pH : {activeCovid.Cases_Per_1_Million_People}</p>
                             {/* <p>NOX:                     {activeCovid.Deaths}</p> */}
+                            <button>More Deatails</button>
                         </div>
                     </Popup>
                 )}

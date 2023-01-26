@@ -60,6 +60,8 @@ const AirMaps = () => {
                             <p>PPM 2.5:         {activeCovid.New_Cases_Per_Day}</p>
                             <p>Lead: {activeCovid.Cases_Per_1_Million_People}</p>
                             <p>NOX:                     {activeCovid.Deaths}</p>
+                            <button>More Deatails</button>
+                            {/* <Button>More Deatails</Button> */}
                         </div>
                     </Popup>
                 )}
