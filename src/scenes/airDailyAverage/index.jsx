@@ -4,91 +4,14 @@ import { tokens } from "../../theme";
 import SensorNetworkDummy from "../../data/SensorNetworkDummy";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const AirDailyAverage = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const host = 'http://spritan.pythonanywhere.com/api'
 
-  const rows = [
-    {
-      "id": 1,
-      "Address": "Assam Engineering College",
-      "Coordinates": "26.14171794440607, 91.66006589922732",
-      "Nox": 2.4,
-      "CO": 5220,
-      "SO2": 12,
-      "O3": 25,
-      "PM2.5": 111.8,
-      "Max Temp": 28.5,
-      "Min Temp": 24,
-      "Humidity": 50
-     },
-     {
-      "id": 2,
-      "Address": "Azim Premji University",
-      "Coordinates": "12.84513725199733, 77.7777766930164",
-      "Nox": 2,
-      "CO": 3400,
-      "SO2": 8,
-      "O3": 12,
-      "PM2.5": 50,
-      "Max Temp": 26.5,
-      "Min Temp": 22,
-      "Humidity": 20
-     },
-     {
-      "id": 3,
-      "Address": "Jamia Milia Islamia",
-      "Coordinates": "28.562594663386616, 77.28171859057765",
-      "Nox": 158,
-      "CO": 6100,
-      "SO2": 23,
-      "O3": 7.2,
-      "PM2.5": 200,
-      "Max Temp": 29,
-      "Min Temp": 23,
-      "Humidity": 30
-     },
-     {
-      "id": 4,
-      "Address": "IIT Bombay",
-      "Coordinates": "19.13399718706666, 72.91492909424146",
-      "Nox": 32.8,
-      "CO": 1520,
-      "SO2": 20,
-      "O3": 18,
-      "PM2.5": 39.9,
-      "Max Temp": 28,
-      "Min Temp": 26,
-      "Humidity": 40
-     },
-     {
-      "id": 5,
-      "Address": "NIT Rourkela",
-      "Coordinates": "22.25357708889654, 84.90229553212826",
-      "Nox": 25.3,
-      "CO": 530,
-      "SO2": 20.7,
-      "O3": 12.4,
-      "PM2.5": 15.4,
-      "Max Temp": 28,
-      "Min Temp": 23,
-      "Humidity": 15
-     },
-     {
-      "id": 6,
-      "Address": "AFMC",
-      "Coordinates": "18.503202895649714, 73.88965440607731",
-      "Nox": 38.6,
-      "CO": 1200,
-      "SO2": 15.6,
-      "O3": 6.4,
-      "PM2.5": 79.8,
-      "Max Temp": 29,
-      "Min Temp": 25,
-      "Humidity": 10
-     }
-  ]
 
   const columns = [
     { 
@@ -96,10 +19,20 @@ const AirDailyAverage = () => {
     headerName: "ID",
     width: 90
   },
-    { field: "Address", headerName: "Address", width: 300},
+  {
+    field: "createdAt",
+    headerName: "Date Time",
+    width: 150
+  },
+    { field: "Location", headerName: "Address", width: 300},
     {
-      field: "Nox",
-      headerName: "Nox",
+      field: "NOX",
+      headerName: "NOX",
+      width: 150
+    },
+    {
+      field: "CO2",
+      headerName: "CO2",
       width: 150
     },
     {
@@ -108,8 +41,8 @@ const AirDailyAverage = () => {
       width: 150
     },
     {
-      field: "SO2",
-      headerName: "SO2",
+      field: "Toluene",
+      headerName: "Toluene",
       width: 150
     },
     {
@@ -118,25 +51,61 @@ const AirDailyAverage = () => {
       width: 150
     },
     {
-      field: "O3",
-      headerName: "O3",
+      field: "NH4",
+      headerName: "NH4",
       width: 150
     },
     {
-      field: "PM2.5",
-      headerName: "PM2.5",
+      field: "Aceton",
+      headerName: "Aceton",
       width: 150
     },
     {
-      field: "Max Temp",
-      headerName: "Max Temp",
+      field: "LPG",
+      headerName: "LPG",
       width: 150
     },
     {
-      field: "Min Temp",
-      headerName: "Min Temp",
+      field: "CH4",
+      headerName: "CH4",
       width: 150
     },
+    {
+      field: "Cl2",
+      headerName: "Cl2",
+      width: 150
+    },
+    {
+      field: "PM2_5",
+      headerName: "PM2_5",
+      width: 150
+    },
+    {
+      field: "PM10",
+      headerName: "PM10",
+      width: 150
+    },
+    {
+      field: "ph",
+      headerName: "ph",
+      width: 150
+    },
+    {
+      field: "Temperature",
+      headerName: "Temperature",
+      width: 150
+    },
+    {
+      field: "Pressure",
+      headerName: "Pressure",
+      width: 150
+    },
+    {
+      field: "Altitide",
+      headerName: "Altitide",
+      width: 150
+    },
+
     {
       field: "Humidity",
       headerName: "Humidity",
@@ -146,6 +115,26 @@ const AirDailyAverage = () => {
       // align: "left",
     },
   ];
+
+  const [rows, setRows] = useState()
+
+
+  useEffect(() => {
+      const getSensorData = async () => {
+          const res = await axios.get(`${host}/sensorData/`)
+
+          res.data.students.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+          
+          res.data.students.map(student => {
+            student.createdAt = new Date(student.createdAt).toGMTString()
+          })
+          setRows(res.data.students)
+      }
+      getSensorData()
+
+  }, [])
+
+  
 
   return (
     <Box m="20px">
@@ -185,11 +174,12 @@ const AirDailyAverage = () => {
           },
         }}
       >
-        <DataGrid
+        {rows &&(  <DataGrid
           rows={rows}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
-        />
+        /> )
+        }
       </Box>
     </Box>
   );

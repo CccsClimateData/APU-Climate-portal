@@ -143,19 +143,19 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Air Daily Average Data"
+              title="Air sensor Data"
               to="/AirDailyAverage"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="Air Quality Summary"
               to="/airQualitySummaty"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Typography
               variant="h6"
               color={colors.grey[300]}

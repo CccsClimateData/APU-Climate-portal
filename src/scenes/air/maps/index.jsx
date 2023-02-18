@@ -1,11 +1,12 @@
 import { Box, Typography, useTheme } from "@mui/material";
-import {React, useState} from 'react';
-import { tokens } from "../../../theme";   
+import { React, useEffect, useState } from 'react';
+import { tokens } from "../../../theme";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 import "./maps.css"
-import covidData from '../../../data/data.json'
+// import covidData from '../../../data/data.json'
 import icon1 from '../../../images/covid19.svg'
 import { Icon } from 'leaflet'
+import axios from "axios";
 
 const covidIcon = new Icon({
     iconUrl: icon1,
@@ -13,9 +14,26 @@ const covidIcon = new Icon({
 })
 
 const AirMaps = () => {
+
+    const host = 'http://spritan.pythonanywhere.com/api'
+
+    const [covidData, setCovidData] = useState([
+        
+    ])
+
+    useEffect(() => {
+        const getSensorData = async () => {
+            const res = await axios.get(`${host}/sensorData/`)
+            setCovidData(res.data.students)
+            console.log(res.data.students)
+        }
+        getSensorData()
+    }, [])
+
+
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-    const [ activeCovid, setActiveCovid ] = useState( null );
+    const [activeCovid, setActiveCovid] = useState(null);
 
     return (
         <Box m="20px">
@@ -34,9 +52,9 @@ const AirMaps = () => {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                 )}
-                {covidData.map(eachData => (
+                { covidData && covidData.map(eachData => (
                     <Marker
-                        key={eachData.Id}
+                        key={eachData._id}
                         position={[eachData.Latitude, eachData.Longitude]}
                         eventHandlers={{
                             click: () => {
@@ -56,10 +74,10 @@ const AirMaps = () => {
                     >
                         <div>
                             <h1>{activeCovid.Location}</h1>
-                            <p>AQI CO2:                {activeCovid.Total_Cases}</p>
-                            <p>PPM 2.5:         {activeCovid.New_Cases_Per_Day}</p>
-                            <p>Lead: {activeCovid.Cases_Per_1_Million_People}</p>
-                            <p>NOX:                     {activeCovid.Deaths}</p>
+                            <p>NOX:                {activeCovid.NOX}</p>
+                            <p>PPM 2.5:         {activeCovid.PM2_5}</p>
+                            <p>CO:              {activeCovid.CO}</p>
+                            <p>Temp:                     {activeCovid.Temp}</p>
                             <button>More Deatails</button>
                             {/* <Button>More Deatails</Button> */}
                         </div>
