@@ -14,6 +14,7 @@ const covidIcon = new Icon({
 })
 
 const AirMaps = () => {
+    
 
     const host = 'http://spritan.pythonanywhere.com/api'
 
@@ -29,7 +30,6 @@ const AirMaps = () => {
         }
         getSensorData()
     }, [])
-
 
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
