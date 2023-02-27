@@ -1,7 +1,7 @@
 {
-  "name": "react-admin",
   "version": "0.1.0",
-  "homepage": "https://Spritan.github.io/APU-Climate-portal",
+  "homepage": "http://opensensor.tech",
+  "name": "Open Senssor Net",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
