@@ -14,102 +14,106 @@ const AirDailyAverage = () => {
 
 
   const columns = [
+    //   { 
+    //     field: "id", 
+    //   headerName: "ID",
+    //   width: 90
+    // },
+    {
+      field: "createdAt",
+      headerName: "Date Time",
+      width: 200
+    },
     { 
-      field: "id", 
-    headerName: "ID",
-    width: 90
-  },
-  {
-    field: "createdAt",
-    headerName: "Date Time",
-    width: 150
-  },
-    { field: "Location", headerName: "Address", width: 300},
+      field: "Location", 
+      headerName: "Address", 
+      width: 350 
+    },
     {
       field: "NOX",
       headerName: "NOX",
-      width: 150
+      width: 100
     },
     {
       field: "CO2",
       headerName: "CO2",
-      width: 150
+      width: 100
     },
     {
       field: "CO",
       headerName: "CO",
-      width: 150
+      width: 100
     },
     {
       field: "Toluene",
       headerName: "Toluene",
-      width: 150
+      width: 100
     },
     {
       field: "O3",
       headerName: "O3",
-      width: 150
+      width: 100
     },
     {
       field: "NH4",
       headerName: "NH4",
-      width: 150
+      width: 100
     },
     {
       field: "Aceton",
       headerName: "Aceton",
-      width: 150
+      width: 100
     },
     {
       field: "LPG",
       headerName: "LPG",
-      width: 150
+      width: 100
     },
     {
       field: "CH4",
       headerName: "CH4",
-      width: 150
+      width: 100
     },
     {
       field: "Cl2",
       headerName: "Cl2",
-      width: 150
+      width: 100
     },
     {
       field: "PM2_5",
       headerName: "PM2_5",
-      width: 150
+      width: 100
     },
     {
       field: "PM10",
       headerName: "PM10",
-      width: 150
+      width: 100
     },
-    {
-      field: "ph",
-      headerName: "ph",
-      width: 150
-    },
+    // {
+    //   field: "ph",
+    //   headerName: "ph",
+    //   width: 100
+    // },
     {
       field: "Temperature",
       headerName: "Temperature",
-      width: 150
+      width: 100
     },
     {
       field: "Pressure",
       headerName: "Pressure",
-      width: 150
+      width: 100
     },
-    {
-      field: "Altitide",
-      headerName: "Altitide",
-      width: 150
-    },
+    // {
+    //   field: "Altitide",
+    //   headerName: "Altitide",
+    //   width: 100
+    // },
 
     {
       field: "Humidity",
       headerName: "Humidity",
-      width: 150
+      width: 100
       // type: "number",
       // headerAlign: "left",
       // align: "left",
@@ -120,27 +124,26 @@ const AirDailyAverage = () => {
 
 
   useEffect(() => {
-      const getSensorData = async () => {
-          const res = await axios.get(`${host}/sensorData/`)
+    const getSensorData = async () => {
+      const res = await axios.get(`${host}/sensorData/`)
 
-          res.data.students.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-          
-          res.data.students.map(student => {
-            student.createdAt = new Date(student.createdAt).toGMTString()
-          })
-          setRows(res.data.students)
-      }
-      getSensorData()
+      // res.data.students.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+
+      res.data.students.map(student => {
+        student.createdAt = new Date(student.createdAt).toGMTString()
+      })
+      setRows(res.data.students.reverse())
+    }
+    getSensorData()
 
   }, [])
 
-  
 
   return (
     <Box m="20px">
       <Header
-        title="Daily Air Quality Data"
-        subtitle="Daily Air Quality Data"
+        title="Air Sensor Data"
+        subtitle="Air Sensor Data"
       />
       <Box
         m="40px 0 0 0"
@@ -174,11 +177,11 @@ const AirDailyAverage = () => {
           },
         }}
       >
-        {rows &&(  <DataGrid
+        {rows && (<DataGrid
           rows={rows}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
-        /> )
+        />)
         }
       </Box>
     </Box>

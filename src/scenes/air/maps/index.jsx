@@ -1,7 +1,7 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { React, useEffect, useState } from 'react';
-import { tokens } from "../../../theme";
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+// import { tokens } from "../../../theme";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import "./maps.css"
 // import covidData from '../../../data/data.json'
 import icon1 from '../../../images/covid19.svg'
@@ -25,14 +25,14 @@ const AirMaps = () => {
     useEffect(() => {
         const getSensorData = async () => {
             const res = await axios.get(`${host}/sensorData/`)
-            setCovidData(res.data.students)
-            console.log(res.data.students)
+            setCovidData(res.data.students.reverse())
+            
         }
         getSensorData()
     }, [])
 
     const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    // const colors = tokens(theme.palette.mode);
     const [activeCovid, setActiveCovid] = useState(null);
 
     return (

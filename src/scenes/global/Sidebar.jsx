@@ -149,7 +149,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             /> */}
-            <Typography
+            {/* <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
@@ -177,14 +177,14 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             /> */}
-            <Typography
+            {/* <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
-            >
-              Land Sensor Data
-            </Typography>
-            <Item
+            > */}
+              {/* Land Sensor Data
+            </Typography>  */}
+            {/* <Item
               title="Land Map"
               to="/LandMaps"
               icon={<MapOutlinedIcon />}
@@ -197,7 +197,7 @@ const Sidebar = () => {
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             {/* <Item
               title="Land Quality Summary"
               to="/invoices"
@@ -220,13 +220,13 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             /> */}
-            <Item
+            {/* <Item
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Item
               title="FAQ Page"
               to="/faq"
