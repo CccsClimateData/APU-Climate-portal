@@ -13,6 +13,7 @@ import axios from 'axios';
 import WaterOutlinedIcon from '@mui/icons-material/WaterOutlined';
 import DeviceThermostatOutlinedIcon from '@mui/icons-material/DeviceThermostatOutlined';
 import ThunderstormOutlinedIcon from '@mui/icons-material/ThunderstormOutlined';
+import "./dashboard.css";
 import {
   AreaChart,
   ResponsiveContainer,
@@ -38,8 +39,8 @@ const Dashboard = () => {
   const [searchInput, setSearchInput] = useState('27 Feb 2023');
   const [graphData, setGraphData] = useState(null);
   const [max, setMax] = useState(60);
-  const [donationData_date_here, setDonationData_date_here] = useState(['27 Feb 2023'])
-  const paramsList = ["NOX","CO2","CO","Toluene","O3","NH4","Aceton","LPG","CH4","Cl2","PM2_5","PM10","Temperature","Pressure"]
+  // const [donationData_date_here, setDonationData_date_here] = useState(['27 Feb 2023'])
+  const paramsList = ["NOX", "CO2", "CO", "Toluene", "O3", "NH4", "Aceton", "LPG", "CH4", "Cl2", "PM2_5", "PM10", "Temperature", "Pressure"]
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -63,10 +64,10 @@ const Dashboard = () => {
 
       })
       setDonationData(res.data.students)
-      const dates_here = res.data.students.date_here.map(function (person){
-        return person
-      })
-      setDonationData_date_here(dates_here)
+      // const dates_here = res.data.students.date_here.map(function (person){
+      //   return person
+      // })
+      // setDonationData_date_here(dates_here)
       const filteredData = res.data.students.filter(employee => {
         return employee.date_here === searchInput;
       });
@@ -85,7 +86,7 @@ const Dashboard = () => {
     const filteredData = donationData.filter(employee => {
       return employee.date_here === searchValue;
     });
-    
+
     setGraphData(filteredData)
     setMax(Number(Math.max(...filteredData.map(o => o[params]))))
 
@@ -113,11 +114,11 @@ const Dashboard = () => {
   const handleDateUpdate = (e) => {
     const year = new Date(e.target.value).getFullYear()
     let date = new Date(e.target.value).getDate()
-    const month =  months[new Date(e.target.value).getMonth()]
-    if(date<10){
-      date = '0'+date
+    const month = months[new Date(e.target.value).getMonth()]
+    if (date < 10) {
+      date = '0' + date
     }
-    const timestamp = date + " " + month +  " " + year
+    const timestamp = date + " " + month + " " + year
     searchItems(timestamp)
   }
 
@@ -251,7 +252,7 @@ const Dashboard = () => {
 
             </Box>
             <Box>
-              
+
               {/* <FormControl  variant="standard">
                 <InputLabel id="demo-simple-select-label">Select Parameter</InputLabel>
                 <Select
@@ -291,31 +292,39 @@ const Dashboard = () => {
                 ))}
                 </Select>
               </FormControl> */}
-              <label>select date:
-                <input
-                  type="date"
-                  value={searchInput}
-                  onChange={handleDateUpdate}
-                />
-              {/* <label>select date:
+              <div className="date-params">
+                <label>select date:
+                  <input
+                    type="date"
+                    value={searchInput}
+                    onChange={handleDateUpdate}
+                  />
+                  {/* <label>select date:
                 <input
                   type="input"
                   value={searchInput}
                   onChange={(e) => searchItems(e.target.value)}
                 /> */}
-              </label>
-              <label>select parameter:
-                <select name="" id="" onChange={(e) => searchParams(e.target.value) }>
-                  <option value="CO">CO</option>
+                </label>
+                <label>select parameter:
+                  <select name="" id="" onChange={(e) => searchParams(e.target.value)}>
+                    {paramsList.map((choice) => (
+                      <option key={choice} value={choice}>
+                        {choice}
+                      </option>
+                    ))
+                    }
+                    {/* <option value="CO">CO</option>
                   <option value="CO2">CO2</option>
-                  <option value="PM2_5">PM2_5</option>
-                </select>
-                {/* <input
+                  <option value="PM2_5">PM2_5</option> */}
+                  </select>
+                  {/* <input
                   type="text"
                   value={params}
                   onChange={(e) => searchParams(e.target.value)}
                 /> */}
-              </label>
+                </label>
+              </div>
               <div style={{ paddingTop: "3em" }}>
                 {donationData !== null ? (
 
