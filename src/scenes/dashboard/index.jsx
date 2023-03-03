@@ -108,6 +108,19 @@ const Dashboard = () => {
 
   }, [latitude, longitude])
 
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+  const handleDateUpdate = (e) => {
+    const year = new Date(e.target.value).getFullYear()
+    let date = new Date(e.target.value).getDate()
+    const month =  months[new Date(e.target.value).getMonth()]
+    if(date<10){
+      date = '0'+date
+    }
+    const timestamp = date + " " + month +  " " + year
+    searchItems(timestamp)
+  }
+
 
   return (
     <>
@@ -280,17 +293,28 @@ const Dashboard = () => {
               </FormControl> */}
               <label>select date:
                 <input
-                  type="text"
+                  type="date"
+                  value={searchInput}
+                  onChange={handleDateUpdate}
+                />
+              {/* <label>select date:
+                <input
+                  type="input"
                   value={searchInput}
                   onChange={(e) => searchItems(e.target.value)}
-                />
+                /> */}
               </label>
               <label>select parameter:
-                <input
+                <select name="" id="" onChange={(e) => searchParams(e.target.value) }>
+                  <option value="CO">CO</option>
+                  <option value="CO2">CO2</option>
+                  <option value="PM2_5">PM2_5</option>
+                </select>
+                {/* <input
                   type="text"
                   value={params}
                   onChange={(e) => searchParams(e.target.value)}
-                />
+                /> */}
               </label>
               <div style={{ paddingTop: "3em" }}>
                 {donationData !== null ? (
