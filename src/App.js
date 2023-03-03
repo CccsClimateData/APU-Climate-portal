@@ -40,7 +40,7 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/APU-Climate-portal" element={<Dashboard />} />
+              <Route path="/" element={<Dashboard />} />
               <Route path="/airmaps" element={<AirMaps />} />
               <Route path="/AirDailyAverage" element={<AirDailyAverage />} />
               <Route path="/team" element={<Team />} />
