@@ -40,7 +40,7 @@ const Dashboard = () => {
   const [graphData, setGraphData] = useState(null);
   const [max, setMax] = useState(60);
   // const [donationData_date_here, setDonationData_date_here] = useState(['27 Feb 2023'])
-  const paramsList = ["NOX", "CO2", "CO", "Toluene", "O3", "NH4", "Aceton", "LPG", "CH4", "Cl2", "PM2_5", "PM10", "Temperature", "Pressure"]
+  const paramsList = ["CO", "CO2","NOX", "Toluene", "O3", "NH4", "Aceton", "LPG", "CH4", "Cl2", "PM2_5", "PM10", "Temperature", "Pressure"]
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -119,6 +119,7 @@ const Dashboard = () => {
       date = '0' + date
     }
     const timestamp = date + " " + month + " " + year
+    setSearchInput(timestamp)
     searchItems(timestamp)
   }
 
@@ -157,8 +158,8 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-              title="12,361"
-              subtitle="Emails Sent"
+              title="-"
+              subtitle="AQI"
               progress="0.75"
               increase="+14%"
               icon={
@@ -176,8 +177,8 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-              title="431,225"
-              subtitle="Sales Obtained"
+              title="-"
+              subtitle="Relative Humidity"
               progress="0.50"
               increase="+21%"
               icon={
@@ -195,8 +196,8 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-              title="32,441"
-              subtitle="New Clients"
+              title="-"
+              subtitle="Temperature"
               progress="0.30"
               increase="+5%"
               icon={
@@ -214,8 +215,8 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-              title="1,325,134"
-              subtitle="Traffic Received"
+              title="-"
+              subtitle="Rainfall Probability"
               progress="0.80"
               increase="+43%"
               icon={
@@ -296,8 +297,10 @@ const Dashboard = () => {
                 <label>select date:
                   <input
                     type="date"
-                    value={searchInput}
                     onChange={handleDateUpdate}
+                
+                    value={searchInput}
+                    
                   />
                   {/* <label>select date:
                 <input
@@ -309,6 +312,7 @@ const Dashboard = () => {
                 <label>select parameter:
                   <select name="" id="" onChange={(e) => searchParams(e.target.value)}>
                     {paramsList.map((choice) => (
+                      
                       <option key={choice} value={choice}>
                         {choice}
                       </option>
@@ -356,7 +360,7 @@ const Dashboard = () => {
                   //   <Line type="monotone" dataKey={params} stroke="#8884d8" />
                   // </LineChart>
                 ) : (
-                  <div className="show">Donation data is null</div>
+                  <div className="show">data is null</div>
                 )}
               </div>
             </Box>
