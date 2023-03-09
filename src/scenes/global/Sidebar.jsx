@@ -200,13 +200,13 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             /> */}
-            <Item
+            {/* <Item
               title="FAQ Page"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Item
               title="Resources"
               to="/Resources"

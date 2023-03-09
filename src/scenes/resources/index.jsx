@@ -1,4 +1,4 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import Header from "../../components/Header";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -21,10 +21,11 @@ const Resources = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <a href="http://opensensornet.byethost32.com/index.php/Sensor">
+            <Button variant="contained">
+              Know more
+            </Button>
+          </a>
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded>
@@ -34,10 +35,11 @@ const Resources = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <a href="http://opensensornet.byethost32.com/index.php/Build_and_deploy">
+            <Button variant="contained">
+              Know more
+            </Button>
+          </a>
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded>
@@ -47,10 +49,11 @@ const Resources = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+        <a href="http://opensensornet.byethost32.com/index.php/IoT">
+            <Button variant="contained">
+              Know more
+            </Button>
+          </a>
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded>
@@ -60,10 +63,11 @@ const Resources = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+        <a href="http://opensensornet.byethost32.com/index.php/IoT">
+            <Button variant="contained">
+              Know more
+            </Button>
+          </a>
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded>
@@ -73,12 +77,14 @@ const Resources = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+        <a href="http://opensensornet.byethost32.com/">
+            <Button variant="contained">
+              Know more
+            </Button>
+          </a>
         </AccordionDetails>
       </Accordion>
+      
     </Box>
   );
 };
