@@ -84,7 +84,6 @@ const Resources = () => {
           </a>
         </AccordionDetails>
       </Accordion>
-      
     </Box>
   );
 };
