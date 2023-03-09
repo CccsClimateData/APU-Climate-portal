@@ -1,29 +1,15 @@
 {
   "files": {
-<<<<<<< HEAD
-    "main.css": "/static/css/main.ba9ab47b.css",
-    "main.js": "/static/js/main.9f125dd5.js",
-    "static/media/image (1).png": "/static/media/image (1).6d47b8bd22188c8e9f9d.png",
-    "static/media/covid19.svg": "/static/media/covid19.0ceb0aa4d865e33039c9899daaf8bbe0.svg",
-    "index.html": "/index.html",
-    "main.ba9ab47b.css.map": "/static/css/main.ba9ab47b.css.map",
-    "main.9f125dd5.js.map": "/static/js/main.9f125dd5.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.ba9ab47b.css",
-    "static/js/main.9f125dd5.js"
-=======
     "main.css": "/static/css/main.31ab4d8a.css",
-    "main.js": "/static/js/main.569b7236.js",
+    "main.js": "/static/js/main.cc87b0b8.js",
     "static/media/image (1).png": "/static/media/image (1).6d47b8bd22188c8e9f9d.png",
     "static/media/covid19.svg": "/static/media/covid19.0ceb0aa4d865e33039c9899daaf8bbe0.svg",
     "index.html": "/index.html",
     "main.31ab4d8a.css.map": "/static/css/main.31ab4d8a.css.map",
-    "main.569b7236.js.map": "/static/js/main.569b7236.js.map"
+    "main.cc87b0b8.js.map": "/static/js/main.cc87b0b8.js.map"
   },
   "entrypoints": [
     "static/css/main.31ab4d8a.css",
-    "static/js/main.569b7236.js"
->>>>>>> 94943569c668dda189d6589acac79dc1d06f2398
+    "static/js/main.cc87b0b8.js"
   ]
 }
